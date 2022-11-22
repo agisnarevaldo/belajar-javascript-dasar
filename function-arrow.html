@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Arrow</title>
+</head>
+<body>
+    <script>
+        const sayHello = (name) => {
+            const say = `Hello ${name}`;
+            return say;
+        }
+        const person = {
+            name: "Muhamad Agisna Revaldo",
+            umur: "20"
+        }
+        document.writeln(`<p>${sayHello(person.name)}</P>`);
+
+        // const sayGood = (time) => document.writeln(`<p>Good ${time}</p>`);
+        const sayGood = time => document.writeln(`<p>Good ${time}</p>`);
+        sayGood("Night");
+
+        // const sum = (first, second) => {
+        //     return first + second;
+        // }
+        const sum = (first, second) => first + second;
+        document.write(`<p>${sum(50, 20)}%</p>`);
+
+
+        function createName(callback) {
+            callback("Agisna");
+        }
+        // Anonymous Function
+        // createName(function (name) {
+        //     console.info(`Hello ${name}`)
+        // });
+
+        // Arrow Function
+        createName(name => console.info(`Hello ${name}`));
+
+
+    </script>
+</body>
+</html>

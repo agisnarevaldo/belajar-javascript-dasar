@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Rest Parameter</title>
+</head>
+<body>
+    <script>
+        function sum(name, ...data) {
+            let total = 0;
+            for (const item of data) {
+                total += item;
+            }
+            document.writeln(`<p>${name} is ${total}</p>`);
+        }
+
+        sum("Apple", 10, 12, 14, 29);
+        sum("Banana", 34, 56, 78, 90);
+
+        const values = [20, 20, 30, 10, 20];
+        sum("Orange", ...values); // Spread Syntax
+
+        // Versi Lama
+        function oldSum() {
+            let total = 0;
+            for (const argument of arguments) {
+                total += argument;
+            }
+            document.writeln(`<p>Total is ${total}</p>`);
+        }
+
+        oldSum(1,2,3,4,5)
+    </script>
+</body>
+</html>
