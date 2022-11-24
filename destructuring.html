@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+</head>
+<body>
+    <script>
+        {
+            const names = ["Muhamad", "Agisna", "Revaldo", "Eren", "Yeager", "Mikasa", "Ackerman"];
+            const [firsName, middleName, lastName, ...others] = names;
+
+            console.info(firsName);
+            console.info(middleName);
+            console.info(lastName);
+            console.info(others);
+        }
+
+        {
+            const person = {
+                firsName: "Agisna",
+                lastName: "Revaldo",
+                address: {
+                    street: "Jalan qwerty",
+                    city: "Tasikmalaya",
+                    country: "Indonesia"
+                },
+                noHp: "081394580685",
+                email: "agisrifaldo75@gmail.com",
+                hobby: "Game"
+            };
+
+            const{firsName, lastName, address:{street, city, country}, ...others} = person;
+
+            console.info(firsName);
+            console.info(lastName);
+            // console.info(address);
+            console.info(street);
+            console.info(city);
+            console.info(country);
+            console.info(others);
+        }
+
+        {
+            function displayPerson({firsName, middleName, lastName}) {
+                console.info(firsName);
+                console.info(middleName);
+                console.info(lastName);
+            }
+
+            const person = {
+                firsName: "Muhamad",
+                middleName: "Agisna",
+                lastName: "Revaldo"
+            }
+
+            displayPerson(person)
+        }
+
+        {
+            function sum([first, second]) {
+                return first + second;
+            }
+
+            console.info(sum([1,2]));
+            console.info(sum([10,20]));
+        }
+
+        {
+            const names = [undefined, "Agisna"];
+            [firsName = "Nama Awal", middleName, lastName = "Nama Akhir"] = names;
+
+            // console.info(firsName, middleName, lastName);
+            console.info(firsName);
+            console.info(middleName);
+            console.info(lastName);
+        }
+
+        {
+            const names = {
+                firsName: "Eren",
+                middleName: "Yeager"
+            };
+
+            const {firsName, middleName, lastName = "Last Name"} = names;
+            console.log(firsName);
+            console.log(middleName);
+            console.log(lastName);
+        }
+
+        {
+            const names = {
+                firsName: "Eren",
+                middleName: "Yeager"
+            };
+
+            let {
+                firsName: namaDepan, 
+                middleName: namaTengah, 
+                lastName: namaAkhir = "Nama Akhir"
+            } = names;
+
+            console.log(namaDepan);
+            console.log(namaTengah);
+            console.log(namaAkhir);
+        }
+
+    </script>
+</body>
+</html>
